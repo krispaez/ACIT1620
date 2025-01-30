@@ -7,7 +7,7 @@
     --hover-color: #2082a8;
     --desktop-header-height: 40vh;
     --mobile-header-height: 25vh;
-    /* --after-width: 40%; */
+    --after-width: 40%;
 }
 
 * {
@@ -101,7 +101,7 @@ section, .page-footer {
     position: relative;
     height: fit-content;
     margin: auto;
-    padding: 3%;
+    padding: 3% 3% 0 3%;
     font-weight: 300;
 }
 
@@ -118,7 +118,7 @@ h2 {
 section ul {
     width: fit-content;
     margin: 1.25em auto 0 auto;
-    padding-bottom: 1.5em;
+    padding-bottom: 2.5em;
     list-style-type: circle;
     border-bottom: 1px solid var(--light-font-color);
 }
@@ -190,23 +190,17 @@ section p {
 
 @media only screen and (max-width: 768px) {
 
-body {
-    width: 100vw;
-}
-
 #bg-img {
     height: var(--mobile-header-height);
-    width: 100vw;
 }
 
-header {
+.page-header {
     flex-direction: column-reverse;
-    height: var(--mobile-header-height);
+    height: var(--mobile-header-height) ;
 }
 
 nav {
     width: 80vw;
-    position: absolute;
     top: 10%;
     margin: auto;
 }
@@ -219,6 +213,10 @@ nav {
 
 h1 {
     font-size: 2.5em;
+}
+
+.project {
+    width: 100%;
 }
 
 }
