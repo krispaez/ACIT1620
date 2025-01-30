@@ -3,7 +3,8 @@
     --light-bg-color: #f2f0e9;
     --light-font-color: #f1f1f1;
     --dark-font-color: #2f2f2f;
-    --hover-color: #167fa8;
+    --link-color: #0e4e68;
+    --hover-color: #2082a8;
     --desktop-header-height: 40vh;
     --mobile-header-height: 25vh;
     /* --after-width: 40%; */
@@ -86,7 +87,7 @@ nav li {
 }
 
 a {
-    color: var(--dark-font-color);
+    color: var(--link-color);
     text-decoration: none;
     font-weight: 400;
 }
