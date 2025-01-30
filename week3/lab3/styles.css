@@ -3,11 +3,12 @@
     --light-bg-color: #f2f0e9;
     --light-font-color: #f1f1f1;
     --dark-font-color: #2f2f2f;
-    --link-color: #0e4e68;
-    --hover-color: #2082a8;
+    --link-color: #f943b3;
+    --hover-color: #11a3c4;
+    --nav-hover-color: #0687a4;
     --desktop-header-height: 40vh;
     --mobile-header-height: 25vh;
-    --after-width: 40%;
+    /* --after-width: 40%; */
 }
 
 * {
@@ -89,15 +90,23 @@ nav li, h2 {
     letter-spacing: 1px;
 }
 
+nav a {
+    color: var(--dark-font-color);
+}
+
+nav a:hover {
+    color: var(--nav-hover-color);
+}
+
 a {
     color: var(--link-color);
     text-decoration: none;
-    font-weight: 400;
+    transition: .3s ease all;
+    /* font-weight: 400; */
 }
 
 a:hover {
     color: var(--hover-color);
-    transition: .3s ease all;
 }
 
 section, .page-footer {
@@ -192,9 +201,12 @@ section p {
     justify-content: space-between;
 }
 
+.contact-icon {
+    transition: .3s ease all;
+}
+
 .contact-icon:hover {
     fill: var(--hover-color);
-    transition: .3s ease all;
 }
 
 @keyframes fade-in {
@@ -247,6 +259,11 @@ h1 {
 
 #contact-list {
     width: 40%;
+}
+
+.contact-icon {
+    height: 80%;
+    width: 80%;
 }
 
 }
