@@ -6,7 +6,7 @@
     --hover-color: #167fa8;
     --desktop-header-height: 40vh;
     --mobile-header-height: 25vh;
-    --after-width: 40%;
+    /* --after-width: 40%; */
 }
 
 * {
@@ -36,7 +36,7 @@ body {
     overflow: hidden;
 }
 
-header {
+.page-header {
     display: flex;
     width: 100vw;
     height: var(--desktop-header-height);
@@ -96,7 +96,7 @@ a:hover {
     transition: .3s ease all;
 }
 
-section, footer {
+section, .page-footer {
     position: relative;
     height: fit-content;
     margin: auto;
@@ -130,14 +130,14 @@ section p {
     text-align: center;
 }
 
-#about::after {
+/* #about::after {
     content: "";
     width: var(--after-width);
     height: 1px;
     position: absolute;
     bottom: 5%;
     left: calc((100% - var(--after-width))/2);
-}
+} */
 
 #project-container {
     display: flex;
@@ -156,7 +156,7 @@ section p {
     border-radius: 10px;
 }
 
-footer {
+.page-footer {
     background-color: var(--light-bg-color);
     color: var(--dark-font-color);
 }
