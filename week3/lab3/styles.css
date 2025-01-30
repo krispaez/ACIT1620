@@ -215,6 +215,10 @@ h1 {
     font-size: 2.5em;
 }
 
+#about {
+    margin-top: 3%;
+}
+
 .project {
     width: 100%;
 }
