@@ -3,7 +3,7 @@
     --light-bg-color: #f2f0e9;
     --light-font-color: #f1f1f1;
     --dark-font-color: #2f2f2f;
-    --hover-color: #33addd;
+    --hover-color: #167fa8;
     --desktop-header-height: 40vh;
     --mobile-header-height: 25vh;
     --after-width: 40%;
@@ -96,7 +96,7 @@ a:hover {
     transition: .3s ease all;
 }
 
-section, #contact {
+section, footer {
     position: relative;
     height: fit-content;
     margin: auto;
@@ -110,10 +110,16 @@ h2 {
     margin-bottom: 1.5em;
 }
 
+.italic {
+    font-style: italic;
+}
+
 section ul {
     width: fit-content;
-    margin: 1.25em auto;
+    margin: 1.25em auto 0 auto;
+    padding-bottom: 1.5em;
     list-style-type: circle;
+    border-bottom: 1px solid var(--light-font-color);
 }
 
 section li {
@@ -131,7 +137,6 @@ section p {
     position: absolute;
     bottom: 5%;
     left: calc((100% - var(--after-width))/2);
-    background-color: var(--light-font-color);
 }
 
 #project-container {
@@ -151,7 +156,7 @@ section p {
     border-radius: 10px;
 }
 
-#contact {
+footer {
     background-color: var(--light-bg-color);
     color: var(--dark-font-color);
 }
@@ -163,7 +168,7 @@ section p {
     justify-content: space-between;
 }
 
-#contact-list svg:hover {
+.contact-icon:hover {
     fill: var(--hover-color);
     transition: .3s ease all;
 }
