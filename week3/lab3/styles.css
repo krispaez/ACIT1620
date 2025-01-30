@@ -162,6 +162,10 @@ section p {
     color: var(--dark-font-color);
 }
 
+#contact {
+    padding-bottom: 2%;
+}
+
 #contact-list {
     width: 20%;
     margin: auto;
@@ -174,7 +178,6 @@ section p {
     transition: .3s ease all;
 }
 
-
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -186,7 +189,6 @@ section p {
         transform: translateX(0);
     }
 }
-
 
 @media only screen and (max-width: 768px) {
 
