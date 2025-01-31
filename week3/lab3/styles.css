@@ -206,7 +206,7 @@ section p {
 }
 
 .contact-icon:hover {
-    fill: var(--hover-color);
+    fill: var(--nav-hover-color);
 }
 
 @keyframes fade-in {
