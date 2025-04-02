@@ -157,7 +157,6 @@ audio {
 
 .item-focus {
     z-index: 999;
-    animation: album-scroll-left 1s ease-out;
     transform: perspective(600px) translateZ(100px);
 }
 
@@ -206,36 +205,4 @@ tr {
 .song-row:hover {
     background-color: var(--font-transparent);
     transition: .2s ease all;
-}
-
-@keyframes animate{}
-
-@keyframes album-scroll-left {
-
-    0% {
-        transform: translateX(-100px) rotateY(45deg);
-    }
-
-    20% {
-        transform: translateZ(205px);
-    }
-    
-    100% {
-        transform: translateX(0px) rotateY(0deg) translateZ(200px);
-    }
-}
-
-@keyframes album-scroll-right {
-
-    0% {
-        transform: translateX(100px) rotateY(-45deg);
-    }
-
-    20% {
-        transform: translateZ(205px);
-    }
-
-    100% {
-        transform: translateX(0px) rotateY(0deg) translateZ(200px);
-    }
 }
