@@ -1,35 +1,28 @@
 @font-face {
     font-family: 'Roboto';
-    src: url(./fonts/Roboto-VariableFont_wdth\,wght.ttf);
+    src: url(./fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf);
 }
 
 @font-face {
     font-family: 'Roboto Flex';
-    src: url(./fonts/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
-}
-
-@font-face {
-    font-family: 'Monument';
-    src: url(./fonts/Monument/PPMonumentExtended-Light.otf);
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'Monument';
-    src: url(./fonts/Monument/PPMonumentExtended-LightItalic.otf);
-    font-weight: 300;
+    src: url(./fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf);
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'Monument';
-    src: url(./fonts/Monument/PPMonumentExtended-Regular.otf);
+    font-family: 'Roboto Flex';
+    src: url(./fonts/Roboto/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
+}
+
+@font-face {
+    font-family: 'Silka';
+    src: url(./fonts/silka-regular-webfont.woff);
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Monument';
-    src: url(./fonts/Monument/PPMonumentExtended-RegularItalic.otf);
+    font-family: 'Silka';
+    src: url(./fonts/silka-regularitalic-webfont.woff);
     font-weight: 400;
     font-style: italic;
 }
@@ -42,8 +35,9 @@
     --font-transparent: rgba(255, 255, 255, 0.123);
     --playlist-width: 85%;
     --header-height: 5vh;
-    --reel-height: 70vh;
+    --reel-height: 80vh;
     --audio-height: 15vh;
+    --logo-colour: #00d7d7;
 }
 
 * {
@@ -68,22 +62,27 @@ header {
     width: fit-content;
     height: var(--header-height);
     align-items: center;
-    margin: 1%;
+    margin: 1% 1% 3% 2%;
 }
 
 #logo {
-    fill: var(--font-color);
-    opacity: .8;
+    fill: var(--logo-colour);
     height: 70%;
     margin: 5%;
 }
 
+header:hover #logo {
+    animation: spin 1s ease-out;
+}
+
 header h1 {
-    font-family: 'Monument', 'Arial', 'sans-serif';
-    font-size: .9em;
+    font-family: 'Silka', 'Arial', 'sans-serif';
+    font-size: 1.1em;
     font-weight: 300;
+    font-style: italic;
     letter-spacing: 1px;
     margin: 0 0 0 2%;
+    color: var(--logo-colour);
 }
 
 #audio-container {
@@ -118,7 +117,7 @@ audio {
 
 #song-metadata {
     width: fit-content;
-    margin: 0 auto 10vh auto;
+    margin: 0 auto;
     text-align: center;
     line-height: 1.5em;
     font-weight: 100;
@@ -133,13 +132,17 @@ audio {
     position: relative;
 }
 
+#reel-container::-webkit-scrollbar {
+    height: 10px;
+}
+
 #album-reel {
     width: fit-content;
     display: flex;
     margin: 0 100% 15vh 100%;
     list-style: none;
     position: absolute;
-    top: 15%;
+    top: 10%;
 }
 
 .reel-item {
@@ -151,23 +154,25 @@ audio {
     scroll-snap-align: center;
 }
 
-.cover {
+.cover-img {
     width: 100%;
 }
 
 .item-focus {
     z-index: 999;
-    transform: perspective(600px) translateZ(100px);
+    transform: perspective(600px) translateZ(100px) rotateY(0);
 }
 
 .item-left {
     perspective-origin: 50% 0;
     transform: perspective(600px) rotateY(15deg);
+    animation: flipRight 1s ease all;
 }
 
 .item-right {
     perspective-origin: 50% 0;
     transform: perspective(600px) rotateY(-15deg);
+    animation: flipLeft 1s ease all;
 }
 
 #playlist-container {
@@ -186,7 +191,7 @@ audio {
 th {
     width: calc(var(--playlist-width) / 3);
     padding: 1em 0 1em 1em;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 td {
@@ -205,4 +210,34 @@ tr {
 .song-row:hover {
     background-color: var(--font-transparent);
     transition: .2s ease all;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flipLeft {
+    from {
+        transform: perspective(600px) rotateY(-15deg);
+    }
+
+    to {
+        transform: perspective(600px) rotateY(15deg) rotate(-360deg);
+    }
+}
+
+@keyframes flipRight {
+    from {
+        transform: perspective(600px) rotateY(15deg);
+    }
+
+    to {
+        transform: perspective(600px) rotateY(-15deg) rotate(360deg);
+    }
 }

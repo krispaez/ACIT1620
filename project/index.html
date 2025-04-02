@@ -1,102 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Music Playlist</title>
-</head>
-<body>
-    <header>
-        <img id="logo" src="./icons/vinyl-record-svgrepo-com.svg">
-        <h1>CiTUNES</h1>
-    </header>
-    <div id="audio-container">
-        <audio controls src="./music/for-sure.m4a"></audio>
-        <div id="song-metadata">
-            <p class="song-title"></p>
-            <p class="artist"></p>
-            <p class="album"></p>      
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles.css" />
+        <title>Music Playlist</title>
+    </head>
+    <body>
+        <header>
+            <img id="logo" src="./icons/vinyl-record.svg" />
+            <h1>ciTUNES</h1>
+        </header>
+        <div id="audio-container">
+            <audio controls src="./music/for-sure.m4a"></audio>
+            <div id="song-metadata">
+                <p class="song-title"></p>
+                <p class="artist"></p>
+                <p class="album"></p>
+            </div>
         </div>
-    </div>
-
-    <div id="reel-container">
-        <ul id="album-reel">
-            <li class="reel-item item-focus"><img class="cover" src="./images/kairos.jpg"></li>
-            <li class="reel-item item-left"><img class="cover" src="./images/kairos.jpg"></li>
-            <li class="reel-item item-left"><img class="cover" src="./images/kairos.jpg"></li>
-            <li class="reel-item item-left"><img class="cover" src="./images/art-angels.jpg"></li>
-            <li class="reel-item item-left"><img class="cover" src="./images/kairos.jpg"></li>
-            <li class="reel-item item-focus"><img class="cover" src="./images/dedicated.jpg"></li>
-            <li class="reel-item item-right"><img class="cover" src="./images/nobody.jpg"></li>
-            <li class="reel-item item-right"><img class="cover" src="./images/oblivion.jpg"></li>
-            <li class="reel-item item-right">><img class="cover" src="./images/oblivion.jpg"></li>
-            <li class="reel-item item-right">><img class="cover" src="./images/oblivion.jpg"></li>
-            <li class="reel-item item-right">><img class="cover" src="./images/oblivion.jpg"></li>
-        </ul>
-    </div>
-    <div id="playlist-container">
-        <table id="playlist">
-            <th>Song</th>
-            <th>Artist</th>
-            <th>Album</th>
-            <tr class="song-row">
-                <td>
-                    Old Macdonald
-                </td>
-                <td>
-                    Had a Farm
-                </td>
-                <td>
-                    EIEIO
-                </td>
-            </tr>
-            <tr class="song-row">
-                <td>
-                    Rub A
-                </td>
-                <td>
-                    Dub
-                </td>
-                <td>
-                    Dub
-                </td>
-            </tr>
-            <tr class="song-row">
-                <td>
-                    For He's
-                </td>
-                <td>
-                    A Jolly
-                </td>
-                <td>
-                    Good Fellow
-                </td>
-            </tr>
-            <tr class="song-row">
-                <td>
-                    Happy Birthday
-                </td>
-                <td>
-                    To You
-                </td>
-                <td>
-                    Happy Birthday
-                </td>
-            </tr>
-            <tr class="song-row">
-                <td>
-                    I Like
-                </td>
-                <td>
-                    Jelly
-                </td>
-                <td>
-                    Sandwiches
-                </td>
-            </tr>
-        </table>
-    </div>
-<script src="./index.js"></script>
-</body>
+        <div id="reel-container">
+            <ul id="album-reel">
+                <li class="reel-item">
+                    <img class="cover-img" src="" />
+                </li>
+                <li class="reel-item">
+                    <img class="cover-img" src="" />
+                </li>
+                <li class="reel-item">
+                    <img class="cover-img" src="" />
+                </li>
+                <li class="reel-item">
+                    <img class="cover-img" src="" />
+                </li>
+                <li class="reel-item">
+                    <img class="cover-img" src="" />
+                </li>
+                <li class="reel-item">
+                    <img class="cover-img" src="" />
+                </li>
+                <li class="reel-item">
+                    <img class="cover-img" src="" />
+                </li>
+            </ul>
+        </div>
+        <div id="playlist-container">
+            <table id="playlist">
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <tr class="song-row">
+                    <td class="song-title">Old Macdonald</td>
+                    <td class="artist">Had a Farm</td>
+                    <td class="album">EIEIO</td>
+                </tr>
+                <tr class="song-row">
+                    <td class="song-title">Rub A</td>
+                    <td class="artist">Dub</td>
+                    <td class="album">Dub</td>
+                </tr>
+                <tr class="song-row">
+                    <td class="song-title">For He's</td>
+                    <td class="artist">A Jolly</td>
+                    <td class="album">Good Fellow</td>
+                </tr>
+                <tr class="song-row">
+                    <td class="song-title">Happy Birthday</td>
+                    <td class="artist">To You</td>
+                    <td class="album">Happy Birthday</td>
+                </tr>
+                <tr class="song-row">
+                    <td class="song-title">I Like</td>
+                    <td class="artist">Jelly</td>
+                    <td class="album">Sandwiches</td>
+                </tr>
+            </table>
+        </div>
+        <script src="./index.js"></script>
+    </body>
 </html>
