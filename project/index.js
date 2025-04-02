@@ -1,4 +1,4 @@
-// PLAYLIST
+// VARIABLES
 
 let music = document.querySelector("audio");
 console.log(music)
@@ -23,6 +23,11 @@ let cover = document.querySelector(".cover")
 
 // const nextBtn = document.querySelector(".next");
 // nextBtn.addEventListener("click", nextSong);
+
+
+
+
+// PLAYLIST
 
 let playlist = [
         {
@@ -82,8 +87,8 @@ let playlist = [
         }
         music.src = playlist[i].path;
         music.play();
-        playBtn.style.display = "none";
-        pauseBtn.style.display = "inline";
+        // playBtn.style.display = "none";
+        // pauseBtn.style.display = "inline";
         title.innerHTML = playlist[i].name;
         artist.innerHTML = playlist[i].artist;
         album.innerHTML = playlist[i].album;
@@ -103,8 +108,8 @@ let playlist = [
         music.src = playlist[i].path;
 
         music.play();
-        playBtn.style.display = "none";
-        pauseBtn.style.display = "inline";
+        // playBtn.style.display = "none";
+        // pauseBtn.style.display = "inline";
         title.innerHTML = playlist[i].name;
         artist.innerHTML = playlist[i].artist;
         album.innerHTML = playlist[i].album;
@@ -120,12 +125,12 @@ let playlist = [
     function togglePlayPause() {
         if (isPlaying == true) {
             music.pause();
-            playBtn.style.display = "inline";
-            pauseBtn.style.display = "none";
+            // playBtn.style.display = "inline";
+            // pauseBtn.style.display = "none";
         } else {
             music.play();
-            playBtn.style.display = "none";
-            pauseBtn.style.display = "inline";
+            // playBtn.style.display = "none";
+            // pauseBtn.style.display = "inline";
         }
     }
 
@@ -138,10 +143,19 @@ let playlist = [
 
     music.onended = function () {
         isPlaying = false;
-        playBtn.style.display = "inline";
-        pauseBtn.style.display = "none";
+        // playBtn.style.display = "inline";
+        // pauseBtn.style.display = "none";
         nextSong();
     };
 
-    pauseBtn.addEventListener("click", togglePlayPause);
-    playBtn.addEventListener("click", togglePlayPause);
+    // pauseBtn.addEventListener("click", togglePlayPause);
+    // playBtn.addEventListener("click", togglePlayPause);
+
+    // ALBUM STACKING 
+    
+    // insert paths to covers for each object in playlist array onto reel items
+    // loop through, starting with i==0
+    // add class .item-focus to playlist[i]
+    // if reelitem index < i, add class .item-left
+    // if reelitem index > i, add class .item-right
+    // for each item-right, decrease z-index by one
