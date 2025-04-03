@@ -9,7 +9,6 @@ let focusItem = document.getElementsByClassName("item-focus");
 let title = document.querySelector(".song-title");
 let artist = document.querySelector(".artist");
 let album = document.querySelector(".album");
-// let coverImage = document.querySelector(".cover");
 
 // const playBtn = document.querySelector(".play");
 // let cssPlayBtn = window.getComputedStyle(playBtn);
@@ -17,11 +16,11 @@ let album = document.querySelector(".album");
 // const pauseBtn = document.querySelector(".pause");
 // let cssPauseBtn = window.getComputedStyle(pauseBtn);
 
-// const prevBtn = document.querySelector(".prev");
-// prevBtn.addEventListener("click", prevSong);
+const prevBtn = document.querySelector(".prev");
+prevBtn.addEventListener("click", prevSong);
 
-// const nextBtn = document.querySelector(".next");
-// nextBtn.addEventListener("click", nextSong);
+const nextBtn = document.querySelector(".next");
+nextBtn.addEventListener("click", nextSong);
 
 // PLAYLIST
 
@@ -31,35 +30,35 @@ let playlist = [
         name: "Realiti",
         artist: "Grimes",
         album: "Art Angels",
-        cover: "./images/art-angels.jpg"
+        art: "./images/art-angels.jpg"
     },
     {
         path: "./music/oblivion.mp3",
         name: "Oblivion",
         artist: "Grimes",
         album: "Visions",
-        cover: "./images/oblivion.jpg"
+        art: "./images/oblivion.jpg"
     },
     {
         path: "./music/for-sure.m4a",
         name: "For Sure",
         artist: "Carly Rae Jepsen",
         album: "Dedicated",
-        cover: "./images/dedicated.jpg"
+        art: "./images/dedicated.jpg"
     },
     {
         path: "./music/let-go.m4a",
         name: "Let Go",
         artist: "Mitski",
         album: "Be the Cowboy",
-        cover: "./images/nobody.jpg"
+        art: "./images/nobody.jpg"
     },
     {
         path: "./music/mundo.m4a",
         name: "Mundo",
         artist: "White Hinterland",
         album: "Kairos",
-        cover: "./images/kairos.jpg"
+        art: "./images/kairos.jpg"
     },
 ];
 
@@ -77,7 +76,7 @@ let covers = document.querySelectorAll(".cover-img");
 function coverFlip() {
     for (let i = 0; i < playlist.length; i++) {
         for (let i = 0; i < covers.length; i++) {
-            covers[i].src = playlist[i].cover;
+            covers[i].src = playlist[i].art;
             let rect = covers[i].getBoundingClientRect();
             let windCen = window.innerWidth / 2;
             let covCen = (rect.width / 2) + rect.x;

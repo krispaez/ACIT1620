@@ -22,7 +22,7 @@
 
 @font-face {
     font-family: 'Silka';
-    src: url(./fonts/silka-regularitalic-webfont.woff);
+    src: url(./fonts/Silka/silka-regularitalic-webfont.woff);
     font-weight: 400;
     font-style: italic;
 }
@@ -87,24 +87,24 @@ header h1 {
 
 #audio-container {
     text-align: center;
-    height: var(--audio-height);
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: auto;
 }
 
-audio {
-    width: 85%;
-    opacity: 1;
+#audio-container img {
+    cursor: pointer;
+    transition: .3s ease all;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
     filter: invert(1);
 }
 
-/* #audio-container svg {
-    margin: 0 5%;
-    opacity: .5;
-    cursor: pointer;
-    transition: .3s ease all;
-}
-
-#audio-container svg:hover {
-    opacity: .8;
+#audio-container img:hover {
+    background-color: var(--font-color);
 }
 
 .pause {
@@ -113,7 +113,13 @@ audio {
 
 .play {
     display: inline;
-} */
+}
+
+audio {
+    width: 75vw;
+    opacity: 1;
+    filter: invert(1);
+}
 
 #song-metadata {
     width: fit-content;
