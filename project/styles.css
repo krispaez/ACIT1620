@@ -134,6 +134,7 @@ audio {
     height: var(--reel-height);
     overflow-x: scroll;
     overflow-y: visible;
+    /* scroll-behavior: smooth; */
     scroll-snap-type: x mandatory;
     position: relative;
 }

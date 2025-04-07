@@ -1,7 +1,7 @@
 // VARIABLES
 
 let music = document.querySelector("audio");
-music.volume = 0.1;
+music.volume = 0.05;
 
 let reelItems = document.querySelectorAll(".reel-item");
 let focusItem = document.getElementsByClassName("item-focus");
@@ -113,8 +113,8 @@ function nextSong() {
     title.innerHTML = playlist[i].name;
     artist.innerHTML = playlist[i].artist;
     album.innerHTML = playlist[i].album;
-    reelItems[i].classList.add("item-focus");
     focusItem.classList.remove("item-focus");
+    reelItems[i].classList.add("item-focus");
     console.log("hi");
 }
 
@@ -183,13 +183,6 @@ for (let i = 0; i < rightItems.length; i++) {
 //         }
 //     }
 // }
-
-// insert paths to covers for each object in playlist array onto reel items
-// loop through, starting with i=0
-// add class .item-focus to playlist[i]
-// if reelitem index < i, add class .item-left
-// if reelitem index > i, add class .item-right
-// for each item-right, decrease z-index by one
 
 // let songRows = document.querySelectorAll(".song-row");
 
