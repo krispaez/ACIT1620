@@ -162,23 +162,26 @@ audio {
 
 .cover-img {
     width: 100%;
+    /* border-style: solid; for testing - kat */
 }
 
 .item-focus {
     z-index: 999;
-    transform: perspective(600px) translateZ(100px) rotateY(0);
+    transform: perspective(600px) translateZ(75px) rotateY(0);
+    animation: focus .1s ease;
 }
 
 .item-left {
     perspective-origin: 50% 0;
     transform: perspective(600px) rotateY(15deg);
-    animation: flipRight 1s ease all;
+    animation: flipLeft .2s ease;
 }
 
 .item-right {
     perspective-origin: 50% 0;
     transform: perspective(600px) rotateY(-15deg);
-    animation: flipLeft 1s ease all;
+    animation: flipRight .2s ease;
+
 }
 
 #playlist-container {
@@ -228,13 +231,25 @@ tr {
     }
 }
 
+@keyframes focus {
+    from {
+        transform: perspective(600px);
+    }
+    
+    to {
+        z-index: 999;
+        transform: perspective(600px) translateZ(75px) rotateY(0);
+    }
+
+}
+
 @keyframes flipLeft {
     from {
         transform: perspective(600px) rotateY(-15deg);
     }
 
     to {
-        transform: perspective(600px) rotateY(15deg) rotate(-360deg);
+        transform: perspective(600px) rotateY(15deg);
     }
 }
 
@@ -244,6 +259,6 @@ tr {
     }
 
     to {
-        transform: perspective(600px) rotateY(-15deg) rotate(360deg);
+        transform: perspective(600px) rotateY(-15deg);
     }
 }

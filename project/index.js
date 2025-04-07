@@ -10,12 +10,6 @@ let title = document.querySelector(".song-title");
 let artist = document.querySelector(".artist");
 let album = document.querySelector(".album");
 
-// const playBtn = document.querySelector(".play");
-// let cssPlayBtn = window.getComputedStyle(playBtn);
-
-// const pauseBtn = document.querySelector(".pause");
-// let cssPauseBtn = window.getComputedStyle(pauseBtn);
-
 const prevBtn = document.querySelector(".prev");
 prevBtn.addEventListener("click", prevSong);
 
@@ -84,7 +78,7 @@ function coverFlip() {
                 covers[i].classList.remove("item-left");
                 covers[i].classList.remove("item-right");
                 covers[i].classList.add("item-focus");
-                console.log('center');
+                // console.log('center');
             }
             else if (covCen > (windCen + 100)) {
                 covers[i].classList.remove("item-left");
@@ -94,8 +88,10 @@ function coverFlip() {
                 covers[i].classList.add("item-left");
                 console.log(window.innerWidth, windCen, rect, covCen, )
             }
-        }}
+            getCurrentCover() /*for testing - kat*/
+        }
     }
+}
 
 reelCont.addEventListener("scroll", coverFlip);
 
@@ -112,8 +108,6 @@ function nextSong() {
     }
     music.src = playlist[i].path;
     music.play();
-    // playBtn.style.display = "none";
-    // pauseBtn.style.display = "inline";
     title.innerHTML = playlist[i].name;
     artist.innerHTML = playlist[i].artist;
     album.innerHTML = playlist[i].album;
@@ -133,14 +127,10 @@ function prevSong() {
     music.src = playlist[i].path;
 
     music.play();
-    // playBtn.style.display = "none";
-    // pauseBtn.style.display = "inline";
     title.innerHTML = playlist[i].name;
     artist.innerHTML = playlist[i].artist;
     album.innerHTML = playlist[i].album;
-    cover.src = playlist[i].cover;
-    // reelItems[i].classList.remove("item-focus")
-    // focusItem.classList.add("item-focus")
+    covers.src = playlist[i].cover;
 }
 
 // PLAY-PAUSE TOGGLE
@@ -150,12 +140,8 @@ let isPlaying = false;
 function togglePlayPause() {
     if (isPlaying == true) {
         music.pause();
-        // playBtn.style.display = "inline";
-        // pauseBtn.style.display = "none";
     } else {
         music.play();
-        // playBtn.style.display = "none";
-        // pauseBtn.style.display = "inline";
     }
 }
 
@@ -168,15 +154,26 @@ music.onpause = function () {
 
 music.onended = function () {
     isPlaying = false;
-    // playBtn.style.display = "inline";
-    // pauseBtn.style.display = "none";
     nextSong();
 };
 
-// pauseBtn.addEventListener("click", togglePlayPause);
-// playBtn.addEventListener("click", togglePlayPause);
-
 // ALBUM STACKING
+
+/*for testing - kat*/
+function getCurrentCover() {
+    console.log("v~~~~~covers~~~~~v");
+    let cssCov = window.getComputedStyle(covers[i]);
+    for (let i = 0; i < covers.length; i++) {
+        let imgType = covers[i].className
+        if (imgType == "cover-img item-focus") {
+            console.log(covers[i].style.zindex);
+            covers[i].style.zindex = 999;
+        } else {
+            console.log(covers[i].zindex);
+            covers[i].style.zindex = 0;
+        }
+    }
+}
 
 // insert paths to covers for each object in playlist array onto reel items
 // loop through, starting with i=0
@@ -184,3 +181,25 @@ music.onended = function () {
 // if reelitem index < i, add class .item-left
 // if reelitem index > i, add class .item-right
 // for each item-right, decrease z-index by one
+
+let songRows = document.querySelectorAll(".song-row");
+
+songRows.forEach((songRow, index) => {
+    songRow.addEventListener("click", () => {
+        // Scroll to the corresponding reel item
+        reelItems[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Update song info based on the clicked row
+        title.innerHTML = playlist[index].name;
+        artist.innerHTML = playlist[index].artist;
+        album.innerHTML = playlist[index].album;
+        music.src = playlist[index].path;
+        music.play();
+
+        // Update the focus class
+        if (focusItem.length > 0) {
+            focusItem[0].classList.remove("item-focus");
+        }
+        reelItems[index].classList.add("item-focus");
+    });
+});
