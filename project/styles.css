@@ -134,7 +134,6 @@ audio {
     height: var(--reel-height);
     overflow-x: scroll;
     overflow-y: visible;
-    /* scroll-behavior: smooth; */
     scroll-snap-type: x mandatory;
     position: relative;
 }
@@ -166,13 +165,13 @@ audio {
 
 .cover-img {
     width: 100%;
-    /* border-style: solid; for testing - kat */
+    border: 1px solid #ffffffa6;
 }
 
 .item-focus {
     z-index: 999;
     transform: perspective(600px) translateZ(75px) rotateY(0);
-    animation: focus .1s ease;
+    animation: focus .2s ease;
 }
 
 .item-left {
