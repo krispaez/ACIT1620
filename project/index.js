@@ -110,8 +110,8 @@ function nextSong() {
     title.innerHTML = playlist[i].name;
     artist.innerHTML = playlist[i].artist;
     album.innerHTML = playlist[i].album;
-    focusItem.classList.remove("item-focus");
     reelItems[i].classList.add("item-focus");
+    focusItem.classList.remove("item-focus");
     console.log("hi");
 }
 
@@ -139,9 +139,7 @@ music.onended = function () {
 // ALBUM STACKING
 
 let rightItems = document.getElementsByClassName("item-right")
-console.log(rightItems)
 for (let i = 0; i < rightItems.length; i++) {
     let cssCov = window.getComputedStyle(rightItems[i]);
     rightItems[i].style.zIndex -= 1;
-    console.log(rightItems[i].style.zIndex);
     };
