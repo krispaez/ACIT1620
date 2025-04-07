@@ -160,7 +160,8 @@ audio {
     -webkit-box-reflect: below 1px linear-gradient(to bottom, var(--transparent), var(--semi-transparent));
     scroll-snap-align: center;
     position: relative;
-
+    border-radius: 2px;
+    overflow: hidden;
 }
 
 .cover-img {

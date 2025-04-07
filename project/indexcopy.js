@@ -74,12 +74,13 @@ function coverFlip() {
             let rect = reelItems[i].getBoundingClientRect();
             let windCen = window.innerWidth / 2;
             let covCen = (rect.width / 2) + rect.x;
-            if (covCen < (windCen + 25) && covCen > (windCen - 25)) {
+            if (covCen < (windCen + 100) && covCen > (windCen - 100)) {
                 reelItems[i].classList.remove("item-left");
                 reelItems[i].classList.remove("item-right");
                 reelItems[i].classList.add("item-focus");
+                // console.log('center');
             }
-            else if (covCen > (windCen + 25)) {
+            else if (covCen > (windCen + 100)) {
                 reelItems[i].classList.remove("item-left");
                 reelItems[i].classList.remove("item-focus");
                 reelItems[i].classList.add("item-right");
@@ -87,7 +88,9 @@ function coverFlip() {
                 reelItems[i].classList.remove("item-right");
                 reelItems[i].classList.remove("item-focus");
                 reelItems[i].classList.add("item-left");
+                // console.log(window.innerWidth, windCen, rect, covCen, )
             }
+            // getCurrentCover() /*for testing - kat*/
         }
     }
 }
@@ -132,7 +135,27 @@ function prevSong() {
     covers.src = playlist[i].cover;
 }
 
+// PLAY-PAUSE TOGGLE
+
+// let isPlaying = false;
+
+// function togglePlayPause() {
+//     if (isPlaying == true) {
+//         music.pause();
+//     } else {
+//         music.play();
+//     }
+// }
+
+// music.onplaying = function () {
+//     isPlaying = true;
+// };
+// music.onpause = function () {
+//     isPlaying = false;
+// };
+
 music.onended = function () {
+    // isPlaying = false;
     nextSong();
 };
 
@@ -145,3 +168,40 @@ for (let i = 0; i < rightItems.length; i++) {
     rightItems[i].style.zIndex -= 1;
     console.log(rightItems[i].style.zIndex);
     };
+
+// function getCurrentCover() {
+//     console.log("v~~~~~covers~~~~~v");
+//     let cssCov = window.getComputedStyle(covers[i]);
+//     for (let i = 0; i < covers.length; i++) {
+//         let imgType = covers[i].className
+//         if (imgType == "cover-img item-focus") {
+//             console.log(covers[i].style.zindex);
+//             covers[i].style.zindex = 999;
+//         } else {
+//             console.log(covers[i].zindex);
+//             covers[i].style.zindex = 0;
+//         }
+//     }
+// }
+
+// let songRows = document.querySelectorAll(".song-row");
+
+// songRows.forEach((songRow, index) => {
+//     songRow.addEventListener("click", () => {
+//         // Scroll to the corresponding reel item
+//         reelItems[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+//         // Update song info based on the clicked row
+//         title.innerHTML = playlist[index].name;
+//         artist.innerHTML = playlist[index].artist;
+//         album.innerHTML = playlist[index].album;
+//         music.src = playlist[index].path;
+//         music.play();
+
+//         // Update the focus class
+//         if (focusItem.length > 0) {
+//             focusItem[0].classList.remove("item-focus");
+//         }
+//         reelItems[index].classList.add("item-focus");
+//     });
+// });
