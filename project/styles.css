@@ -158,6 +158,8 @@ audio {
     transform-origin: center;
     -webkit-box-reflect: below 1px linear-gradient(to bottom, var(--transparent), var(--semi-transparent));
     scroll-snap-align: center;
+    position: relative;
+
 }
 
 .cover-img {
@@ -181,7 +183,6 @@ audio {
     perspective-origin: 50% 0;
     transform: perspective(600px) rotateY(-15deg);
     animation: flipRight .2s ease;
-
 }
 
 #playlist-container {

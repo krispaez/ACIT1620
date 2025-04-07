@@ -71,24 +71,26 @@ function coverFlip() {
     for (let i = 0; i < playlist.length; i++) {
         for (let i = 0; i < covers.length; i++) {
             covers[i].src = playlist[i].art;
-            let rect = covers[i].getBoundingClientRect();
+            let rect = reelItems[i].getBoundingClientRect();
             let windCen = window.innerWidth / 2;
             let covCen = (rect.width / 2) + rect.x;
             if (covCen < (windCen + 100) && covCen > (windCen - 100)) {
-                covers[i].classList.remove("item-left");
-                covers[i].classList.remove("item-right");
-                covers[i].classList.add("item-focus");
+                reelItems[i].classList.remove("item-left");
+                reelItems[i].classList.remove("item-right");
+                reelItems[i].classList.add("item-focus");
                 // console.log('center');
             }
             else if (covCen > (windCen + 100)) {
-                covers[i].classList.remove("item-left");
-                covers[i].classList.add("item-right");
+                reelItems[i].classList.remove("item-left");
+                reelItems[i].classList.remove("item-focus");
+                reelItems[i].classList.add("item-right");
             } else {
-                covers[i].classList.remove("item-right");
-                covers[i].classList.add("item-left");
-                console.log(window.innerWidth, windCen, rect, covCen, )
+                reelItems[i].classList.remove("item-right");
+                reelItems[i].classList.remove("item-focus");
+                reelItems[i].classList.add("item-left");
+                // console.log(window.innerWidth, windCen, rect, covCen, )
             }
-            getCurrentCover() /*for testing - kat*/
+            // getCurrentCover() /*for testing - kat*/
         }
     }
 }
@@ -159,21 +161,28 @@ music.onended = function () {
 
 // ALBUM STACKING
 
-/*for testing - kat*/
-function getCurrentCover() {
-    console.log("v~~~~~covers~~~~~v");
-    let cssCov = window.getComputedStyle(covers[i]);
-    for (let i = 0; i < covers.length; i++) {
-        let imgType = covers[i].className
-        if (imgType == "cover-img item-focus") {
-            console.log(covers[i].style.zindex);
-            covers[i].style.zindex = 999;
-        } else {
-            console.log(covers[i].zindex);
-            covers[i].style.zindex = 0;
-        }
-    }
-}
+let rightItems = document.getElementsByClassName("item-right")
+console.log(rightItems)
+for (let i = 0; i < rightItems.length; i++) {
+    let cssCov = window.getComputedStyle(rightItems[i]);
+    rightItems[i].style.zIndex -= 1;
+    console.log(rightItems[i].style.zIndex);
+    };
+
+// function getCurrentCover() {
+//     console.log("v~~~~~covers~~~~~v");
+//     let cssCov = window.getComputedStyle(covers[i]);
+//     for (let i = 0; i < covers.length; i++) {
+//         let imgType = covers[i].className
+//         if (imgType == "cover-img item-focus") {
+//             console.log(covers[i].style.zindex);
+//             covers[i].style.zindex = 999;
+//         } else {
+//             console.log(covers[i].zindex);
+//             covers[i].style.zindex = 0;
+//         }
+//     }
+// }
 
 // insert paths to covers for each object in playlist array onto reel items
 // loop through, starting with i=0
@@ -182,24 +191,24 @@ function getCurrentCover() {
 // if reelitem index > i, add class .item-right
 // for each item-right, decrease z-index by one
 
-let songRows = document.querySelectorAll(".song-row");
+// let songRows = document.querySelectorAll(".song-row");
 
-songRows.forEach((songRow, index) => {
-    songRow.addEventListener("click", () => {
-        // Scroll to the corresponding reel item
-        reelItems[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+// songRows.forEach((songRow, index) => {
+//     songRow.addEventListener("click", () => {
+//         // Scroll to the corresponding reel item
+//         reelItems[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Update song info based on the clicked row
-        title.innerHTML = playlist[index].name;
-        artist.innerHTML = playlist[index].artist;
-        album.innerHTML = playlist[index].album;
-        music.src = playlist[index].path;
-        music.play();
+//         // Update song info based on the clicked row
+//         title.innerHTML = playlist[index].name;
+//         artist.innerHTML = playlist[index].artist;
+//         album.innerHTML = playlist[index].album;
+//         music.src = playlist[index].path;
+//         music.play();
 
-        // Update the focus class
-        if (focusItem.length > 0) {
-            focusItem[0].classList.remove("item-focus");
-        }
-        reelItems[index].classList.add("item-focus");
-    });
-});
+//         // Update the focus class
+//         if (focusItem.length > 0) {
+//             focusItem[0].classList.remove("item-focus");
+//         }
+//         reelItems[index].classList.add("item-focus");
+//     });
+// });
