@@ -74,12 +74,12 @@ function coverFlip() {
             let rect = reelItems[i].getBoundingClientRect();
             let windCen = window.innerWidth / 2;
             let covCen = (rect.width / 2) + rect.x;
-            if (covCen < (windCen + 25) && covCen > (windCen - 25)) {
+            if (covCen < (windCen + 100) && covCen > (windCen - 100)) {
                 reelItems[i].classList.remove("item-left");
                 reelItems[i].classList.remove("item-right");
                 reelItems[i].classList.add("item-focus");
             }
-            else if (covCen > (windCen + 25)) {
+            else if (covCen > (windCen + 100)) {
                 reelItems[i].classList.remove("item-left");
                 reelItems[i].classList.remove("item-focus");
                 reelItems[i].classList.add("item-right");
