@@ -112,7 +112,14 @@ function nextSong() {
     } else {
         i++;
     }
-    currentSong(i);
+    music.src = playlist[i].path;
+    music.play();
+    title.innerHTML = playlist[i].name;
+    artist.innerHTML = playlist[i].artist;
+    album.innerHTML = playlist[i].album;
+    reelItems[i].classList.add("item-focus");
+    focusItem.classList.remove("item-focus");
+    reelCont.scrollLeft += 200;
 }
 
 // PREVIOUS SONG
@@ -123,7 +130,12 @@ function prevSong() {
     } else {
         i--;
     }
-    currentSong(i);
+    music.src = playlist[i].path;
+    music.play();
+    title.innerHTML = playlist[i].name;
+    artist.innerHTML = playlist[i].artist;
+    album.innerHTML = playlist[i].album;
+    covers.src = playlist[i].cover;
 }
 
 music.onended = function () {
@@ -137,41 +149,3 @@ for (let i = 0; i < rightItems.length; i++) {
     let cssCov = window.getComputedStyle(rightItems[i]);
     rightItems[i].style.zIndex -= 1;
     };
-
-    let songRows = document.querySelectorAll(".song-row");
-
-songRows.forEach((songRow, index) => {
-    songRow.addEventListener("click", () => {
-        //go to selected song
-        currentSong(index)
-    });
-});
-
-function currentSong(index) {
-    // Update the focus class
-    for (let i = 0; i < reelItems.length; i++) {
-        console.log(i, )
-        if (i === index) {
-            reelItems[i].classList.remove("item-left");
-            reelItems[i].classList.remove("item-right");
-            reelItems[i].classList.add("item-focus");
-        } else if (i > index) {
-            reelItems[i].classList.remove("item-left");
-            reelItems[i].classList.remove("item-focus");
-            reelItems[i].classList.add("item-right");
-        } else {
-            reelItems[i].classList.remove("item-right");
-            reelItems[i].classList.remove("item-focus");
-            reelItems[i].classList.add("item-left");
-        }
-    };
-    // Update song info based on the clicked row
-    title.innerHTML = playlist[index].name;
-    artist.innerHTML = playlist[index].artist;
-    album.innerHTML = playlist[index].album;
-    music.src = playlist[index].path;
-    music.play();
-    // Scroll to the corresponding reel item and center album cover
-    reelItems[index].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
-    i = index;
-}
