@@ -145,7 +145,7 @@ audio {
 #album-reel {
     width: fit-content;
     display: flex;
-    margin: 0 100% 15vh 40vw;
+    margin: 0 100% 15vh 100%;
     list-style: none;
     position: absolute;
     top: 10%;
@@ -158,31 +158,28 @@ audio {
     transform-origin: center;
     -webkit-box-reflect: below 1px linear-gradient(to bottom, var(--transparent), var(--semi-transparent));
     scroll-snap-align: center;
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
 }
 
 .cover-img {
     width: 100%;
+    border-style: solid; /*for testing - kat*/
 }
 
 .item-focus {
     z-index: 999;
-    transform: perspective(600px) translateZ(75px) rotateY(0);
-    animation: focus .2s ease;
+    transform: perspective(600px) translateZ(100px) rotateY(0);
 }
 
 .item-left {
     perspective-origin: 50% 0;
     transform: perspective(600px) rotateY(15deg);
-    animation: flipLeft .2s ease;
+    animation: flipRight 1s ease all;
 }
 
 .item-right {
     perspective-origin: 50% 0;
     transform: perspective(600px) rotateY(-15deg);
-    animation: flipRight .2s ease;
+    animation: flipLeft 1s ease all;
 }
 
 #playlist-container {
@@ -232,25 +229,13 @@ tr {
     }
 }
 
-@keyframes focus {
-    from {
-        transform: perspective(600px);
-    }
-    
-    to {
-        z-index: 999;
-        transform: perspective(600px) translateZ(75px) rotateY(0);
-    }
-
-}
-
 @keyframes flipLeft {
     from {
         transform: perspective(600px) rotateY(-15deg);
     }
 
     to {
-        transform: perspective(600px) rotateY(15deg);
+        transform: perspective(600px) rotateY(15deg) rotate(-360deg);
     }
 }
 
@@ -260,6 +245,6 @@ tr {
     }
 
     to {
-        transform: perspective(600px) rotateY(-15deg);
+        transform: perspective(600px) rotateY(-15deg) rotate(360deg);
     }
 }

@@ -3,9 +3,6 @@
 let music = document.querySelector("audio");
 music.volume = 0.05;
 
-let reelItems = document.querySelectorAll(".reel-item");
-let focusItem = document.getElementsByClassName("item-focus");
-
 let title = document.querySelector(".song-title");
 let artist = document.querySelector(".artist");
 let album = document.querySelector(".album");
@@ -62,9 +59,13 @@ title.innerHTML = playlist[i].name;
 artist.innerHTML = playlist[i].artist;
 album.innerHTML = playlist[i].album;
 
+let reelItems = document.querySelectorAll(".reel-item");
+let focusItem = document.getElementsByClassName("item-focus");
+
 // INSERT COVERS
 
 let reelCont = document.getElementById("reel-container");
+let cssCont = window.getComputedStyle(reelCont);
 let covers = document.querySelectorAll(".cover-img");
 
 function coverFlip() {
@@ -112,7 +113,7 @@ function nextSong() {
     album.innerHTML = playlist[i].album;
     reelItems[i].classList.add("item-focus");
     focusItem.classList.remove("item-focus");
-    console.log("hi");
+    reelCont.scrollLeft += 200;
 }
 
 // PREVIOUS SONG
