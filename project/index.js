@@ -21,35 +21,40 @@ let playlist = [
         name: "Realiti",
         artist: "Grimes",
         album: "Art Angels",
-        art: "./images/art-angels.jpg"
+        art: "./images/art-angels.jpg",
+        text: "Art Angels album art"
     },
     {
         path: "./music/oblivion.mp3",
         name: "Oblivion",
         artist: "Grimes",
         album: "Visions",
-        art: "./images/oblivion.jpg"
+        art: "./images/oblivion.jpg",
+        text: "Visions album art"
     },
     {
         path: "./music/for-sure.m4a",
         name: "For Sure",
         artist: "Carly Rae Jepsen",
         album: "Dedicated",
-        art: "./images/dedicated.jpg"
+        art: "./images/dedicated.jpg",
+        text: "Dedicated album art"
     },
     {
         path: "./music/let-go.m4a",
         name: "Let Go",
         artist: "Mitski",
         album: "Be the Cowboy",
-        art: "./images/nobody.jpg"
+        art: "./images/nobody.jpg",
+        text: "Mitski album art"
     },
     {
         path: "./music/mundo.m4a",
         name: "Mundo",
         artist: "White Hinterland",
         album: "Kairos",
-        art: "./images/kairos.jpg"
+        art: "./images/kairos.jpg",
+        text: "Kairos album art"
     },
 ];
 
@@ -72,6 +77,7 @@ function coverFlip() {
     for (let i = 0; i < playlist.length; i++) {
         for (let i = 0; i < covers.length; i++) {
             covers[i].src = playlist[i].art;
+            covers[i].alt = playlist[i].text;
             let rect = reelItems[i].getBoundingClientRect();
             let windCen = window.innerWidth / 2;
             let covCen = (rect.width / 2) + rect.x;
