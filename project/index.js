@@ -1,22 +1,8 @@
-// VARIABLES
-
+// set music volume
 let music = document.querySelector("audio");
 music.volume = 0.3;
 
-let title = document.querySelector(".song-title");
-let rowTitle = document.querySelectorAll(".row-title");
-let artist = document.querySelector(".artist");
-let rowArtist = document.querySelectorAll(".row-artist");
-let album = document.querySelector(".album");
-let rowAlbum = document.getElementsByClassName("row-album");
-
-const prevBtn = document.querySelector(".prev");
-prevBtn.addEventListener("click", prevSong);
-
-const nextBtn = document.querySelector(".next");
-nextBtn.addEventListener("click", nextSong);
-
-// PLAYLIST
+// PLAYLIST SONGS
 
 let playlist = [
     {
@@ -61,6 +47,11 @@ let playlist = [
     },
 ];
 
+//populate song metadata with title, artist, album of current song
+let title = document.querySelector(".song-title");
+let artist = document.querySelector(".artist");
+let album = document.querySelector(".album");
+
 let i = 0;
 music.src = playlist[i].path;
 title.innerHTML = playlist[i].name;
@@ -70,12 +61,17 @@ album.innerHTML = playlist[i].album;
 let reelItems = document.querySelectorAll(".reel-item");
 let focusItem = document.getElementsByClassName("item-focus");
 
-// INSERT COVERS
-
+// insert album art into reel
 let reelCont = document.getElementById("reel-container");
 let cssCont = window.getComputedStyle(reelCont);
 let covers = document.querySelectorAll(".cover-img");
 
+// dynamically populate playlist section with data for all songs in playlist
+let rowTitle = document.querySelectorAll(".row-title");
+let rowArtist = document.querySelectorAll(".row-artist");
+let rowAlbum = document.getElementsByClassName("row-album");
+
+//flip through each album in the reel
 function coverFlip() {
     for (let i = 0; i < playlist.length; i++) {
         for (let i = 0; i < covers.length; i++) {
@@ -110,7 +106,8 @@ reelCont.addEventListener("scroll", coverFlip);
 const songData = document.getElementById("song-metadata");
 let cssSongData = window.getComputedStyle(songData);
 
-// NEXT SONG
+// play next song once current song has ended, or when next button is clicked
+// if last song in playlist, reset index to 0 and start from beginning
 
 function nextSong() {
     if (i === playlist.length - 1) {
@@ -121,7 +118,15 @@ function nextSong() {
     currentSong(i);
 }
 
-// PREVIOUS SONG
+music.onended = function () {
+    nextSong();
+};
+
+const nextBtn = document.querySelector(".next");
+nextBtn.addEventListener("click", nextSong);
+
+// play previous song when previous button is clicked
+// if first song in playlist, go to last song when button is clicked
 
 function prevSong() {
     if (i === 0) {
@@ -132,9 +137,8 @@ function prevSong() {
     currentSong(i);
 }
 
-music.onended = function () {
-    nextSong();
-};
+const prevBtn = document.querySelector(".prev");
+prevBtn.addEventListener("click", prevSong);
 
 // ALBUM STACKING
 
@@ -157,7 +161,6 @@ currentSong()
 function currentSong(index) {
     // Update the focus class
     for (let i = 0; i < reelItems.length; i++) {
-        console.log(i, )
         if (i === index) {
             reelItems[i].classList.remove("item-left");
             reelItems[i].classList.remove("item-right");
@@ -182,4 +185,3 @@ function currentSong(index) {
     reelItems[index].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
     i = index;
 }
-
