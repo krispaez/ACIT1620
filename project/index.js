@@ -24,16 +24,16 @@ let playlist = [
         name: "Penguin Town",
         artist: "snoozybeats",
         album: "Royalty Free Lofi",
-        art: "./images/art-angels.jpg",
-        text: "Art Angels album art"
+        art: "./images/nobody.jpg",
+        text: "Mitski album art"
     },
     {
         path: "./music/lastcappuccino.mp3",
         name: "Last Cappuccino in Rio",
         artist: "Chris Haugen",
         album: "YouTube Audio Library",
-        art: "./images/dedicated.jpg",
-        text: "Dedicated album art"
+        art: "./images/art-angels.jpg",
+        text: "Art Angels album art"
     },
     {
         path: "./music/kittydownthestairs.mp3",
@@ -48,8 +48,8 @@ let playlist = [
         name: "Lullaby for Strangers",
         artist: "Lofium",
         album: "Royalty Free Lofi",
-        art: "./images/nobody.jpg",
-        text: "Mitski album art"
+        art: "./images/dedicated.jpg",
+        text: "Dedicated album art"
     },
     {
         path: "./music/simpinonyou.mp3",
