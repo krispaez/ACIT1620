@@ -129,12 +129,13 @@ audio {
 }
 
 #reel-container {
+    position: relative;
     width: 100%;
     height: var(--reel-height);
     overflow-x: scroll;
     overflow-y: visible;
     scroll-snap-type: x mandatory;
-    position: relative;
+    scroll-behavior: smooth;
 }
 
 #reel-container::-webkit-scrollbar {

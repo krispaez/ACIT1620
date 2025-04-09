@@ -1,11 +1,14 @@
 // VARIABLES
 
 let music = document.querySelector("audio");
-music.volume = 0.05;
+music.volume = 0.3;
 
 let title = document.querySelector(".song-title");
+let rowTitle = document.querySelectorAll(".row-title");
 let artist = document.querySelector(".artist");
+let rowArtist = document.querySelectorAll(".row-artist");
 let album = document.querySelector(".album");
+let rowAlbum = document.getElementsByClassName("row-album");
 
 const prevBtn = document.querySelector(".prev");
 prevBtn.addEventListener("click", prevSong);
@@ -17,42 +20,42 @@ nextBtn.addEventListener("click", nextSong);
 
 let playlist = [
     {
-        path: "./music/realiti.m4a",
-        name: "Realiti",
-        artist: "Grimes",
-        album: "Art Angels",
+        path: "./music/penguintown.mp3",
+        name: "Penguin Town",
+        artist: "snoozybeats",
+        album: "Royalty Free Lofi",
         art: "./images/art-angels.jpg",
         text: "Art Angels album art"
     },
     {
-        path: "./music/oblivion.mp3",
-        name: "Oblivion",
-        artist: "Grimes",
-        album: "Visions",
-        art: "./images/oblivion.jpg",
-        text: "Visions album art"
-    },
-    {
-        path: "./music/for-sure.m4a",
-        name: "For Sure",
-        artist: "Carly Rae Jepsen",
-        album: "Dedicated",
+        path: "./music/lastcappuccino.mp3",
+        name: "Last Cappuccino in Rio",
+        artist: "Chris Haugen",
+        album: "YouTube Audio Library",
         art: "./images/dedicated.jpg",
         text: "Dedicated album art"
     },
     {
-        path: "./music/let-go.m4a",
-        name: "Let Go",
-        artist: "Mitski",
-        album: "Be the Cowboy",
+        path: "./music/kittydownthestairs.mp3",
+        name: "Kitty Down the Stairs",
+        artist: "Joel Cummins",
+        album: "YouTube Audio Library",
+        art: "./images/oblivion.jpg",
+        text: "Visions album art"
+    },
+    {
+        path: "./music/lullabye.mp3",
+        name: "Lullaby for Strangers",
+        artist: "Lofium",
+        album: "Royalty Free Lofi",
         art: "./images/nobody.jpg",
         text: "Mitski album art"
     },
     {
-        path: "./music/mundo.m4a",
-        name: "Mundo",
-        artist: "White Hinterland",
-        album: "Kairos",
+        path: "./music/simpinonyou.mp3",
+        name: "Simpin on You",
+        artist: "The Soundlings",
+        album: "YouTube Audio Library",
         art: "./images/kairos.jpg",
         text: "Kairos album art"
     },
@@ -78,6 +81,9 @@ function coverFlip() {
         for (let i = 0; i < covers.length; i++) {
             covers[i].src = playlist[i].art;
             covers[i].alt = playlist[i].text;
+            rowTitle[i].innerHTML = playlist[i].name;
+            rowArtist[i].innerHTML = playlist[i].artist;
+            rowAlbum[i].innerHTML = playlist[i].album;
             let rect = reelItems[i].getBoundingClientRect();
             let windCen = window.innerWidth / 2;
             let covCen = (rect.width / 2) + rect.x;
@@ -147,6 +153,7 @@ songRows.forEach((songRow, index) => {
     });
 });
 
+currentSong()
 function currentSong(index) {
     // Update the focus class
     for (let i = 0; i < reelItems.length; i++) {
@@ -175,3 +182,4 @@ function currentSong(index) {
     reelItems[index].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
     i = index;
 }
+
