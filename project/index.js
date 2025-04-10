@@ -140,15 +140,17 @@ function prevSong() {
 const prevBtn = document.querySelector(".prev");
 prevBtn.addEventListener("click", prevSong);
 
-// ALBUM STACKING
+// change z-index of all covers to the right of the current cover in decreasing order so that covers closer to centre overlap covers further away
 
 let rightItems = document.getElementsByClassName("item-right")
 for (let i = 0; i < rightItems.length; i++) {
     let cssCov = window.getComputedStyle(rightItems[i]);
     rightItems[i].style.zIndex -= 1;
-    };
+};
 
-    let songRows = document.querySelectorAll(".song-row");
+
+//click on each row in playlist to have audio player play that song and scroll to corresponding album cover
+let songRows = document.querySelectorAll(".song-row");
 
 songRows.forEach((songRow, index) => {
     songRow.addEventListener("click", () => {
