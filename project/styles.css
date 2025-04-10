@@ -244,7 +244,7 @@ tr {
     from {
         transform: perspective(600px);
     }
-    
+
     to {
         z-index: 999;
         transform: perspective(600px) translateZ(75px) rotateY(0);
@@ -271,3 +271,4 @@ tr {
         transform: perspective(600px) rotateY(-15deg);
     }
 }
+

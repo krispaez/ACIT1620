@@ -103,11 +103,11 @@ function coverFlip() {
 
 reelCont.addEventListener("scroll", coverFlip);
 
-const songData = document.getElementById("song-metadata");
-let cssSongData = window.getComputedStyle(songData);
-
 // play next song once current song has ended, or when next button is clicked
 // if last song in playlist, reset index to 0 and start from beginning
+
+const songData = document.getElementById("song-metadata");
+let cssSongData = window.getComputedStyle(songData);
 
 function nextSong() {
     if (i === playlist.length - 1) {
