@@ -36,7 +36,6 @@
     --playlist-width: 85%;
     --header-height: 5vh;
     --reel-height: 60vh;
-    --cover-height: 25vh;
     --audio-height: 15vh;
     --logo-colour: #00d7d7;
 }
@@ -161,8 +160,8 @@ audio {
 }
 
 .reel-item {
-    aspect-ratio: 1;
-    height: var(--cover-height);
+    width: 20vw;
+    height: fit-content;
     flex: 1 1 100%;
     transform-origin: center;
     -webkit-box-reflect: below 1px linear-gradient(to bottom, var(--transparent), var(--semi-transparent));
@@ -275,7 +274,7 @@ tr {
 
 @media only screen and (max-width: 768px) {
     :root {
-        --reel-height: 50vh;
+        --reel-height: 30vh;
         --cover-height: 20vh;
     }
 
@@ -297,12 +296,16 @@ tr {
       margin-right: 2em;
     } 
 
+    #album-reel {
+        margin-bottom: 0;
+    }
+
     th,
     td {
         padding: 0.5em;
       }
 
-    
-
-    
-  }
+      #playlist {
+        margin-top: 0;
+      }
+    }

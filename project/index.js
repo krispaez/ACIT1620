@@ -1,6 +1,6 @@
 // set music volume
 let music = document.querySelector("audio");
-music.volume = 0.3;
+music.volume = 0.1;
 
 // PLAYLIST SONGS
 
