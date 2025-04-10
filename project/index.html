@@ -12,9 +12,9 @@
             <h1>ciTunes</h1>
         </header>
         <div id="audio-container">
-            <img class="prev" src="./icons/previous.svg" alt="Previous song button"/>
+            <img class="prev" src="./icons/previous.svg" alt="Previous song arrow"/>
             <audio controls src=""></audio>
-            <img class="next" src="./icons/next.svg" alt="Next song button"/>
+            <img class="next" src="./icons/next.svg" alt="Next song arrow"/>
         </div>
         <div id="song-metadata">
             <p class="song-title"></p>
@@ -48,34 +48,40 @@
         </div>
         <div id="playlist-container">
             <table id="playlist">
-                <th>Song</th>
-                <th>Artist</th>
-                <th>Album</th>
-                <tr class="song-row">
-                    <td class="row-title"></td>
-                    <td class="row-artist"></td>
-                    <td class="row-album"></td>
-                </tr>
-                <tr class="song-row">
-                    <td class="row-title"></td>
-                    <td class="row-artist"></td>
-                    <td class="row-album"></td>
-                </tr>
-                <tr class="song-row">
-                    <td class="row-title"></td>
-                    <td class="row-artist"></td>
-                    <td class="row-album"></td>
-                </tr>
-                <tr class="song-row">
-                    <td class="row-title"></td>
-                    <td class="row-artist"></td>
-                    <td class="row-album"></td>
-                </tr>
-                <tr class="song-row">
-                    <td class="row-title"></td>
-                    <td class="row-artist"></td>
-                    <td class="row-album"></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Album</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="song-row">
+                        <td class="row-title"></td>
+                        <td class="row-artist"></td>
+                        <td class="row-album"></td>
+                    </tr>
+                    <tr class="song-row">
+                        <td class="row-title"></td>
+                        <td class="row-artist"></td>
+                        <td class="row-album"></td>
+                    </tr>
+                    <tr class="song-row">
+                        <td class="row-title"></td>
+                        <td class="row-artist"></td>
+                        <td class="row-album"></td>
+                    </tr>
+                    <tr class="song-row">
+                        <td class="row-title"></td>
+                        <td class="row-artist"></td>
+                        <td class="row-album"></td>
+                    </tr>
+                    <tr class="song-row">
+                        <td class="row-title"></td>
+                        <td class="row-artist"></td>
+                        <td class="row-album"></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <script src="./index.js"></script>

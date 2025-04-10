@@ -35,7 +35,8 @@
     --font-transparent: rgba(255, 255, 255, 0.123);
     --playlist-width: 85%;
     --header-height: 5vh;
-    --reel-height: 80vh;
+    --reel-height: 60vh;
+    --cover-height: 25vh;
     --audio-height: 15vh;
     --logo-colour: #00d7d7;
 }
@@ -160,8 +161,8 @@ audio {
 }
 
 .reel-item {
-    width: 20vw;
-    height: fit-content;
+    aspect-ratio: 1;
+    height: var(--cover-height);
     flex: 1 1 100%;
     transform-origin: center;
     -webkit-box-reflect: below 1px linear-gradient(to bottom, var(--transparent), var(--semi-transparent));
@@ -272,3 +273,36 @@ tr {
     }
 }
 
+@media only screen and (max-width: 768px) {
+    :root {
+        --reel-height: 50vh;
+        --cover-height: 20vh;
+    }
+
+    header {
+        position: absolute;
+    }
+
+    #logo {
+        height: 100%;
+      }
+  
+    header h1 {
+      display: none;
+    }
+
+    #audio-container {
+      float: right;
+      display: inline-flex;
+      margin-right: 2em;
+    } 
+
+    th,
+    td {
+        padding: 0.5em;
+      }
+
+    
+
+    
+  }
